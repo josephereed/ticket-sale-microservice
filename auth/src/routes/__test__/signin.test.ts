@@ -1,6 +1,6 @@
 import request from 'supertest';
 import { app } from '../../app';
-import { RequestValidationError } from '../../errors/request-validation-error';
+import { RequestValidationError } from '@jrtickets/common';
 
 it('fails when a email that does not exist is supplied', async () => {
   await request(app)

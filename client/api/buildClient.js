@@ -5,7 +5,7 @@ const buildClient = ({ req }) => {
     // We are on the server
 
     return axios.create({
-      baseURL: 'http://172.17.0.3',
+      baseURL: 'http://ingress-nginx-controller.kube-system.svc.cluster.local',
       headers: req.headers,
     });
   } else {
