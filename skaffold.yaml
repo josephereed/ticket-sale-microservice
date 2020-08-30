@@ -2,7 +2,7 @@ apiVersion: skaffold/v2beta6
 kind: Config
 deploy:
   kubectl:
-    manifests: 
+    manifests:
       - ./infra/k8s/*
 build:
   local:
@@ -42,6 +42,14 @@ build:
             dest: .
     - image: josephreed/expiration
       context: expiration
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: 'src/**/*.ts'
+            dest: .
+    - image: josephreed/payments
+      context: payments
       docker:
         dockerfile: Dockerfile
       sync:
